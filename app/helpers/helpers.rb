@@ -1,7 +1,13 @@
+require 'sinatra/base'
+
+
 class Helpers < ActiveRecord::Base
 
-    def current_user
-        user = User.find_by(username: params[:username], password: params[:password])
-        sessions[:user_id] = user.id 
+    def self.current_user(session)
+        @user = User.find_by_id(session[:user_id])
+    end 
+
+    def self.is_logged_in?(session)
+        !!session[:user_id]
     end 
 end
