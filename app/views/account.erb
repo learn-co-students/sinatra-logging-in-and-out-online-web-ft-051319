@@ -7,6 +7,15 @@
   </head>
   <body id="page-top">
     
-
+    
+    <% if Helpers.is_logged_in?(session) %>
+      <h1>Welcome <%= Helpers.current_user(session).username %></h1>
+      # In the helpers class, it's calling the current_user method. Sinces session is available in the views, it is passed in the method accessing the username of the return instance of the current_user method.
+   
+      <h3>Your Balance: <%= Helpers.current_user(session).balance%></h3>
+      
+      <a href="/logout" target="_blank" id="log_out">Log Out</a>
+    <% end %>
+    
   </body>
 </html>
