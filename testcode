@@ -1,0 +1,1 @@
+#  <h4> Balance: <%=@user.balance%> </h4>
